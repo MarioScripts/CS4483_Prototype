@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/contentModel.xml
+/projectSettingsUpdater.xml
+/.idea.CS4483 Game.iml
+# Datasource local storage ignored files
+/../../../../../../../:\Users\Matt\CS4483 Game\.idea\.idea.CS4483 Game\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
