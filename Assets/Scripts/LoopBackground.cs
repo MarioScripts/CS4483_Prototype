@@ -12,8 +12,9 @@ public class LoopBackground : MonoBehaviour
     [SerializeField] private float choke;
 
     private Camera mainCamera;
-
     private Vector2 screenBounds;
+
+    private bool ended = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,22 +23,23 @@ public class LoopBackground : MonoBehaviour
             mainCamera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, mainCamera.transform.position.z));
         foreach (GameObject obj in levels)
         {
-            LoadChildObjects(obj);
+            LoadChildObjects(obj, false);
         }
 
         foreach (GameObject obj in endLevels)
         {
-            LoadChildObjects(obj);
             obj.SetActive(false);
         }
     }
 
-    void LoadChildObjects(GameObject obj)
+    void LoadChildObjects(GameObject obj, bool endLevel)
     {
         float objectWidth = obj.GetComponent<TilemapRenderer>().bounds.size.x - choke;
         int childsNeeded = (int) Mathf.Ceil(screenBounds.x * 2 / objectWidth);
         GameObject clone = Instantiate(obj) as GameObject;
-        for (int i = 0; i <= childsNeeded; i++)
+
+        
+        for (int i = 0; i <= (endLevel ? 1 : childsNeeded); i++)
         {
             GameObject c = Instantiate(clone) as GameObject;
             c.transform.SetParent(obj.transform);
@@ -70,6 +72,10 @@ public class LoopBackground : MonoBehaviour
             }
         }
     }
+    
+    void repositionChildObjects2(GameObject obj) {
+        obj.transform.position = new Vector3(transform.position.x, obj.transform.position.y, obj.transform.position.z);
+    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Finish")) {
@@ -85,10 +91,14 @@ public class LoopBackground : MonoBehaviour
                 repositionChildObjects(obj);
             }
         } else {
+            if (!ended) {
+                ended = true;
+                StartCoroutine(endSceneCoroutine());
+            }
+            
             foreach (GameObject obj in levels) {
                 repositionChildObjects(obj);
             }
-            StartCoroutine(endSceneCoroutine());
         }
     }
 
@@ -96,7 +106,7 @@ public class LoopBackground : MonoBehaviour
         yield return new WaitForSeconds(2);
         foreach (GameObject obj in endLevels) {
             obj.SetActive(true);
-            repositionChildObjects(obj);
+            repositionChildObjects2(obj);
         }
     }
 }

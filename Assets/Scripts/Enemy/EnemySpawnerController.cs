@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 public class EnemySpawnerController : MonoBehaviour {
-    [SerializeField] private EnemySpawn[] enemySpawns;
+    [SerializeField] private EnemyController[] enemySpawns;
     private int numOfEnemies;
     private int enemyIndex = 0;
     private GameObject spawnedEnemy;
@@ -24,11 +24,11 @@ public class EnemySpawnerController : MonoBehaviour {
 
     public void spawnEnemy() {
         if (enemyIndex <= numOfEnemies) {
-            spawnedEnemy = Instantiate(enemySpawns[enemyIndex].enemy.gameObject,
+            spawnedEnemy = Instantiate(enemySpawns[enemyIndex].gameObject,
                 new Vector2(transform.position.x,
                     transform.position.y +
-                    enemySpawns[enemyIndex].enemy.GetComponent<SpriteRenderer>().bounds.extents.y), transform.rotation);
-            spawnedEnemy.GetComponent<EnemyController>().enemyProperties = enemySpawns[enemyIndex].enemyProperties;
+                    enemySpawns[enemyIndex].GetComponent<SpriteRenderer>().bounds.extents.y), transform.rotation);
+            // spawnedEnemy.GetComponent<EnemyController>().enemyProperties = enemySpawns[enemyIndex].enemyProperties;
             enemyIndex++;
         }
         else {

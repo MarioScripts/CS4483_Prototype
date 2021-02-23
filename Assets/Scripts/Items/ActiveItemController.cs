@@ -7,8 +7,20 @@ public class ActiveItemController : ItemController {
     [SerializeField] protected float cooldown;
     [SerializeField] protected int numberOfUses;
 
-    protected bool canUse = true;
+    protected int availableUses;
+    public bool canUse = true;
+
+    protected override void Start() {
+        resetUse();
+        base.Start();
+    }
+
     public virtual void use() {
         // Empty for base class
+    }
+
+    public virtual void resetUse() {
+        availableUses = numberOfUses;
+        canUse = true;
     }
 }

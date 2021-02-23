@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\BoonController.cs" />
      <Compile Include="Assets\Scripts\BoonSpawnController.cs" />
      <Compile Include="Assets\Scripts\Enemy\AngelController.cs" />
+     <Compile Include="Assets\Scripts\Enemy\Attacks\BombItemController.cs" />
      <Compile Include="Assets\Scripts\Enemy\Attacks\EnemyProjectile.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
      <Compile Include="Assets\Scripts\Enemy\EnemyProperties.cs" />
@@ -70,13 +71,14 @@
      <Compile Include="Assets\Scripts\Enemy\HealthBarController.cs" />
      <Compile Include="Assets\Scripts\Enemy\SpiderController.cs" />
      <Compile Include="Assets\Scripts\Enemy\SummonerController.cs" />
-     <Compile Include="Assets\Scripts\Game\GameStateController.cs" />
      <Compile Include="Assets\Scripts\Items\ActiveItemController.cs" />
+     <Compile Include="Assets\Scripts\Items\ActiveItems\ExcavatorsHandyToolsController.cs" />
      <Compile Include="Assets\Scripts\Items\ActiveItems\SprintersElixirContoller.cs" />
      <Compile Include="Assets\Scripts\Items\AttackItemController.cs" />
      <Compile Include="Assets\Scripts\Items\ItemController.cs" />
      <Compile Include="Assets\Scripts\Items\ItemProperties.cs" />
      <Compile Include="Assets\Scripts\Items\ItemSpawnerController.cs" />
+     <Compile Include="Assets\Scripts\Items\PassiveItems\HastyMushroomsController.cs" />
      <Compile Include="Assets\Scripts\Items\PassiveItems\TalismanOfTheLastMancerController.cs" />
      <Compile Include="Assets\Scripts\LoopBackground.cs" />
      <Compile Include="Assets\Scripts\MoveBackground.cs" />

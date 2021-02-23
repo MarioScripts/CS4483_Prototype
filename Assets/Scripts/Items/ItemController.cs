@@ -20,12 +20,12 @@ public class ItemController : MonoBehaviour {
     public int trackNum;
     
     // Start is called before the first frame update
-    protected void Start() {
+    protected virtual void Start() {
         descriptionCanvas = GetComponentInChildren<Canvas>();
     }
 
     // Update is called once per frame
-    protected void Update() {
+    protected virtual void Update() {
         if (descriptionCanvas != null) {
             // Show/hide item info popup depending on whether the player is on the same track or not
             if (GameState.player.currentTrack == trackNum) {

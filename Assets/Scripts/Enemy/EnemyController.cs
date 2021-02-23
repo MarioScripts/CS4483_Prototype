@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,6 +10,8 @@ using Random = System.Random;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] public EnemyProperties enemyProperties;
+
+    protected bool isDying = false;
 
     private Transform firePoint;
     private Animator animator;
@@ -64,6 +67,7 @@ public class EnemyController : MonoBehaviour
                   Destroy(healthBar.gameObject);
               }
               animator.SetTrigger("Death");
+              isDying = true;
           }  
         }
         

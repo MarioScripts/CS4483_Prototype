@@ -48,7 +48,6 @@ public class PlayerController : MonoBehaviour {
             animator.SetTrigger("LevelEnd");
             rb.velocity = new Vector2(rb.velocity.x + 3, rb.velocity.y);
             GameState.levelEnd = true;
-            SceneManager.LoadScene("LevelTwo");
         }
 
         handleControls();
@@ -59,8 +58,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void attemptEndPosition() {
-        // CancelInvoke();
-        // InvokeRepeating("loseMomentum", 0, 0.03f);
         GameState.playerStats.momentumRateMultiplier = 0.1f;
 
         if (momentum > 100) {
@@ -72,8 +69,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private IEnumerator loseMomentum() {
-        // yield return new WaitForSeconds(1);
-
         while (true) {
             if (GameState.inEndPosition) yield break;
     
@@ -94,7 +89,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void handleControls() {
-        if (Input.GetKeyDown(KeyCode.W) && currentTrack < GameState.tracks.Count - 1) {
+        if (Input.GetKeyDown(KeyCode.W) && currentTrack < GameState.tracks.Length - 1) {
             currentTrack++;
             BoxCollider2D trackCollider = GameState.tracks[currentTrack];
             float yTrackPos = (trackCollider.size.y / 2) + trackCollider.transform.position.y;
@@ -111,13 +106,14 @@ public class PlayerController : MonoBehaviour {
             ItemController[] items = FindObjectsOfType<ItemController>();
             bool foundItem = false;
             foreach (ItemController item in items) {
+                // Debug.Log();
                 if (item.trackNum == currentTrack) {
                     foundItem = true;
                     item.equip();
                     
                     item.gameObject.SetActive(false);
-
-                } else {
+                }
+                else {
                     Destroy(item.gameObject);
                 }
             }

@@ -308,7 +308,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1233926693
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f62996eeedd3848f9861a4d9257f66a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -378,24 +378,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 650efb70477f20e4a9dbb281f1c1f852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
-  attackPrefab: {fileID: 8445778517788388715, guid: a20a750881046224c9ed91b1e1417ecd,
-    type: 3}
-  firePoint: {fileID: 6201679338852625995}
-  attackSpeed: 20
-  attackFreq: 2
-  attackTimes: 5
-  shield: {fileID: 7587519152544378125, guid: 739fc65f3413a3c4bbc5942f23edebb8, type: 3}
   enemyProperties:
-    health: 500
+    health: 350
     attackPrefab: {fileID: 8445778517788388715, guid: a20a750881046224c9ed91b1e1417ecd,
       type: 3}
-    firePoint: {fileID: 6201679338852625995}
     attackSpeed: 20
     attackFreq: 2
     attackTimes: 5
     shield: {fileID: 7587519152544378125, guid: 739fc65f3413a3c4bbc5942f23edebb8,
       type: 3}
+    scoreGiven: 0
   trackNum: 0
 --- !u!50 &-240567042593240305
 Rigidbody2D:

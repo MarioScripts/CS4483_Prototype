@@ -18,7 +18,7 @@ public class BoonSpawnController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         boonCollider = boon.GetComponent<BoxCollider2D>();
-        spawnBoon(UnityEngine.Random.Range(0, GameState.tracks.Count - 1));
+        spawnBoon(UnityEngine.Random.Range(0, GameState.tracks.Length ));
         InvokeRepeating("attemptBoonSpawn", 1, 3);
     }
 
@@ -32,7 +32,7 @@ public class BoonSpawnController : MonoBehaviour
     {
         if (!GameState.levelComplete) {
             int willSpawn = UnityEngine.Random.Range(1, GameState.player.momentum > 150 ? badLuckOdds : odds);
-            int randTrack = UnityEngine.Random.Range(0, GameState.tracks.Count);
+            int randTrack = UnityEngine.Random.Range(0, GameState.tracks.Length);
             if (willSpawn == 1) {
                 spawnBoon(randTrack);
             }

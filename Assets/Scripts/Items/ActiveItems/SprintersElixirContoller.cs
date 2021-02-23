@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SprintersElixirContoller : ActiveItemController {
     public override void use() {
-        if (canUse && numberOfUses > 0) {
+        if (canUse && availableUses > 0) {
+            availableUses--;
             GameState.player.StartCoroutine(drinkCoroutine());
-            numberOfUses--;
         }
     }
 
@@ -15,6 +15,6 @@ public class SprintersElixirContoller : ActiveItemController {
         GameState.playerStats.momentumRateMultiplier = 0.5f;
         GameState.player.increaseMomentum(100);
         yield return new WaitForSeconds(5);
-        canUse = true;
+        canUse = availableUses > 0;
     }
 }

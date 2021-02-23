@@ -399,7 +399,6 @@ GameObject:
   - component: {fileID: 6062994500482390981}
   - component: {fileID: 6062994500482390982}
   - component: {fileID: 6062994500482390980}
-  - component: {fileID: 729521893075927972}
   - component: {fileID: 6062994500482390985}
   - component: {fileID: 2525758989695199040}
   - component: {fileID: 1338846516710322856}
@@ -463,7 +462,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1233926693
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fce97958da54a4c40a77191a048fa121, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -502,35 +501,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.57696533, y: 3.1738448}
   m_EdgeRadius: 0
---- !u!114 &729521893075927972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6062994500482390984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 650efb70477f20e4a9dbb281f1c1f852, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  attackPrefab: {fileID: 8445778517788388715, guid: a20a750881046224c9ed91b1e1417ecd,
-    type: 3}
-  firePoint: {fileID: 6062994502027387922}
-  attackSpeed: 0
-  attackFreq: 2
-  attackTimes: 0
-  shield: {fileID: 7587519152544378125, guid: 739fc65f3413a3c4bbc5942f23edebb8, type: 3}
-  enemyProperties:
-    health: 0
-    attackPrefab: {fileID: 0}
-    firePoint: {fileID: 0}
-    attackSpeed: 0
-    attackFreq: 0
-    attackTimes: 0
-    shield: {fileID: 0}
-  trackNum: 0
 --- !u!95 &6062994500482390985
 Animator:
   serializedVersion: 3
@@ -583,22 +553,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71d02169ba1cb945a88d9fb32cc7b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  attackPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  attackSpeed: 0
-  attackFreq: 0
-  attackTimes: 0
-  shield: {fileID: 7587519152544378125, guid: 739fc65f3413a3c4bbc5942f23edebb8, type: 3}
   enemyProperties:
     health: 50
     attackPrefab: {fileID: 0}
-    firePoint: {fileID: 0}
     attackSpeed: 0
     attackFreq: 0
     attackTimes: 0
     shield: {fileID: 7587519152544378125, guid: 739fc65f3413a3c4bbc5942f23edebb8,
       type: 3}
+    scoreGiven: 0
   trackNum: 0
 --- !u!1 &6062994502027387923
 GameObject:

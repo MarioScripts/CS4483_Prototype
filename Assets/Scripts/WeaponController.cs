@@ -24,7 +24,7 @@ public class WeaponController : MonoBehaviour
     IEnumerator cooldownCoroutine()
     {
         canShoot = false;
-        yield return new WaitForSeconds(GameState.playerStats.attackCooldown);
+        yield return new WaitForSeconds(GameState.playerStats.attackCooldown * GameState.playerStats.attackCooldownMultiplier);
         canShoot = true;
     }
 }

@@ -12,7 +12,7 @@ public class GameState : MonoBehaviour {
     public static bool inEndPosition;
     public static bool stopCamera;
     public static bool levelEnd;
-    public static List<BoxCollider2D> tracks;
+    public static BoxCollider2D[] tracks;
     
     // Items
     public static List<ItemController> items;
@@ -25,28 +25,32 @@ public class GameState : MonoBehaviour {
     public static PlayerController player;
 
     [SerializeField] private AttackItemController defaultAttackItem;
+    [SerializeField] private ActiveItemController defaultActiveItem;
 
     private static bool initialLoad = false;
     // Start is called before the first frame update
     void Start() {
         player = FindObjectOfType<PlayerController>();
         initializeTracksForLevel();
-        // GameState.addItem(defaultAttackItem);
+        if (activeItem != null) {
+            activeItem.resetUse();
+        }
+        // addItem(defaultAttackItem);
         
-        GameState.levelComplete = false;
-        GameState.inEndPosition = false;
-        GameState.stopCamera = false;
-        GameState.levelEnd = false;
+        levelComplete = false;
+        inEndPosition = false;
+        stopCamera = false;
+        levelEnd = false;
     }
 
     // Update is called once per frame
     void Update() {
-        if (!GameState.levelComplete) {
-            GameState.time += Time.deltaTime;
+        if (!levelComplete) {
+            time += Time.deltaTime;
 
             EnemySpawnerController[] enemyspawners = FindObjectsOfType<EnemySpawnerController>();
             if (enemyspawners == null || enemyspawners.Length == 0) {
-                GameState.levelComplete = true;
+                levelComplete = true;
                 player.attemptEndPosition();
             }
         }
@@ -60,6 +64,7 @@ public class GameState : MonoBehaviour {
             passiveItems = new List<ItemController>();
             playerStats = new PlayerStats();
             attackItem = defaultAttackItem;
+            activeItem = defaultActiveItem;
         }
         
         DontDestroyOnLoad(this);
@@ -70,19 +75,21 @@ public class GameState : MonoBehaviour {
         if (!itemAlreadyExists) {
             items.Add(item);
             if (item.type == ItemController.ItemType.Active) {
-                Debug.Log("HELLOOO");
                 activeItem = (ActiveItemController) item;
             } else if (item.type == ItemController.ItemType.Attack) {
                 attackItem = (AttackItemController) item;
+            }
+            else {
+                passiveItems.Add(item);
             }
         }
     }
     
     private void initializeTracksForLevel() {
         GameObject[] trackObjects = GameObject.FindGameObjectsWithTag("Track");
-        GameState.tracks = new List<BoxCollider2D>();
+        tracks = new BoxCollider2D[trackObjects.Length];
         foreach (GameObject track in trackObjects) {
-            GameState.tracks.Add(track.GetComponent<BoxCollider2D>());
+            tracks[track.GetComponent<TrackController>().trackNum - 1] = track.GetComponent<BoxCollider2D>();
         }
     }
 }

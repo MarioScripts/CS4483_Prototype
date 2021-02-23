@@ -15,4 +15,5 @@ public class PlayerStats {
     public float attackCooldown = 0.3f;
     public float attackDamageMultiplier = 1;
     public float attackSizeMultiplier = 1;
+    public float attackCooldownMultiplier = 1;
 }

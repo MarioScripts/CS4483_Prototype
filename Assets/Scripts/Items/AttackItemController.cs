@@ -9,18 +9,12 @@ public class AttackItemController : ItemController {
     private Rigidbody2D rb;
     
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * speed;
         base.Start();
     }
-
-    void Update() {
-        base.Update();
-    }
-    
-    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
