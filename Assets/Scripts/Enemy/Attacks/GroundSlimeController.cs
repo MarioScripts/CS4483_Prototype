@@ -29,7 +29,7 @@ public class GroundSlimeController : EnemyProjectile {
         yield return new WaitForSeconds(stuckDuration);
 
         float momentum = (GameState.player.transform.position.x / GameState.player.startingPosition) * GameState.player.baseMomentum;
-        GameState.player.momentum = momentum;
+        GameState.player.momentum = momentum > 250 ? 250 : momentum; // TODO: Remove after prototype
         GameState.player.isStuck = false;
         stuckOnPlayer = false;
     }
