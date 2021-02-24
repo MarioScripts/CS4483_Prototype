@@ -13,12 +13,12 @@ public class EnemyController : MonoBehaviour
 
     protected bool isDying = false;
 
-    private Transform firePoint;
-    private Animator animator;
-    private float maxHealth;
-    private GameObject shieldSpawn;
-    private HealthBarController healthBar;
-    private bool hasShield;
+    protected Transform firePoint;
+    protected Animator animator;
+    protected float maxHealth;
+    protected GameObject shieldSpawn;
+    protected HealthBarController healthBar;
+    protected bool hasShield;
     public int trackNum;
 
     private SpriteRenderer shieldSprite;
@@ -82,7 +82,7 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(attackCoroutine());
     }
 
-    IEnumerator attackCoroutine()
+    private IEnumerator attackCoroutine()
     {
         for (int i = 0; i < enemyProperties.attackTimes; i++) { 
             GameObject createdAttack = Instantiate(enemyProperties.attackPrefab, firePoint.position, enemyProperties.attackPrefab.transform.rotation);

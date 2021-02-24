@@ -44,7 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 1727461876, guid: 0495c6ed94acb044c85ac58647186215, type: 3}
-  - {fileID: 5499811080407887766, guid: 0105972e62b021240b144b55de90a73e, type: 3}
+  - {fileID: 4657754488712523432, guid: 345c6504e3bcc6441b68b9a6bdde10ad, type: 3}
+  - {fileID: 1930267581, guid: 0495c6ed94acb044c85ac58647186215, type: 3}
+  - {fileID: -7502343110740700916, guid: 0105972e62b021240b144b55de90a73e, type: 3}
+  - {fileID: 7556237589221446169, guid: 0fbfa85684bf78b4a8b782dfb3183dc2, type: 3}
   initialChance: 1
-  chanceDropoff: 2
+  chanceDropoff: 1
+  trackDropoff: 0

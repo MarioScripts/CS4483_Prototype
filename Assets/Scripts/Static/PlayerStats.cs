@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerStats {
     // Momentum
     public float momentumPool = 0f;
-    public float momentumDecayRate = 2f;
+    // public float momentumDecayRate = 2f;
+    public float momentumDecayRate = 0f;
     public float momentumIncreaseRate = 2f;
     public float momentumRate = 0.3f;
     public float momentumRateMultiplier = 1f;

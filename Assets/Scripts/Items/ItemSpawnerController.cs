@@ -7,8 +7,9 @@ using Random = System.Random;
 
 public class ItemSpawnerController : MonoBehaviour {
     [SerializeField] private List<ItemController> items;
-    [SerializeField] private int initialChance = 1;
-    [SerializeField] private int chanceDropoff = 2;
+    [SerializeField] private float initialChance = 1;
+    [SerializeField] private float chanceDropoff = 2;
+    [SerializeField] private float trackDropoff = 1;
     
     private List<ItemController> availableItems;
     private List<ItemController> spawnedItems;
@@ -25,9 +26,9 @@ public class ItemSpawnerController : MonoBehaviour {
             
             int generatedChance;
             if (i == 0) {
-                generatedChance = UnityEngine.Random.Range(1, initialChance);
+                generatedChance = (int) UnityEngine.Random.Range(1, initialChance);
             } else {
-                generatedChance = UnityEngine.Random.Range(1, initialChance * chanceDropoff + (i + 1));
+                generatedChance = (int) UnityEngine.Random.Range(1, initialChance * chanceDropoff + (i + 1) * trackDropoff);
             }
             
             if (generatedChance == 1) {

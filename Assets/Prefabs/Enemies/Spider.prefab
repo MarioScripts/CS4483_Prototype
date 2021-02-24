@@ -308,7 +308,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1233926693
-  m_SortingLayer: 4
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 066c4a730a3694a4992b8850e5a07fc9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -399,24 +399,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05891efb701edf643a1bd2cd395222ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
-  attackPrefab: {fileID: 0}
-  firePoint: {fileID: 5894218880113170427}
-  attackSpeed: 0
-  attackFreq: 0
-  attackTimes: 0
-  shield: {fileID: 7587519152544378125, guid: 739fc65f3413a3c4bbc5942f23edebb8, type: 3}
   enemyProperties:
     health: 40
     attackPrefab: {fileID: 0}
-    firePoint: {fileID: 0}
     attackSpeed: 0
     attackFreq: 0
     attackTimes: 0
     shield: {fileID: 7587519152544378125, guid: 739fc65f3413a3c4bbc5942f23edebb8,
       type: 3}
+    scoreGiven: 0
   trackNum: 0
-  followCooldown: 0.5
+  followCooldown: 0.8
 --- !u!1 &7099210582113585799
 GameObject:
   m_ObjectHideFlags: 0

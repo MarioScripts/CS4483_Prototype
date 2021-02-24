@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
     public int currentTrack;
+    public bool isStuck = false;
+    public float baseMomentum = 100;
     
-    private float baseMomentum = 100;
     private Animator animator;
     private bool beginLevelEnd = false;
 
     [SerializeField] public float momentum = 100;
-    [SerializeField] float startingPosition = -3f;
+    [SerializeField] public float startingPosition = -3f;
 
     // Start is called before the first frame update
     void Start() {
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (isStuck) return;
+        
         if (GameState.levelComplete && momentum <= baseMomentum + GameState.playerStats.momentumDecayRate &&
             momentum >= baseMomentum - GameState.playerStats.momentumDecayRate) {
             GameState.inEndPosition = true;
