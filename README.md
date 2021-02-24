@@ -13,6 +13,7 @@ Important notes:
 
  - The art is placeholder art which will be replaced with an Egyptian-themed art style when more work can be done. All art has been taken from the Unity asset store.
  - Currently at the end of a level, there is guaranteed to be 3 items that spawn unless there are no less than 3 items available for the player. This is in place just for the prototype to increase the likelihood of seeing all items within playing the 2 levels. Item spawning will be more scarce when in later stages of the game.
+ - Ground slime on 2nd level will carry the player back. Since no death mechanics are implemented yet, when the player gets moved out of frame, he will reposition back into frame. This will be changed to the player dying in later releases.
 
 
 ### Game Controls
