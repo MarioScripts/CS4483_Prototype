@@ -12,6 +12,9 @@ Note that the art is placeholder art which will be replaced with an Egyptian-the
 
 ### Game Controls
 **Move:** W and S will move the player up or down to the next track, respectively.
+
 **Attack:** Space will fire a projectile from the player. Holding down space will auto-fire.
+
 **Use active item:** E *(Note that you do not start with an active item)*
+
 **Pick up item:** F
